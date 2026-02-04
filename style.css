@@ -1,6 +1,6 @@
 body {
-    padding: 25px;
     font-family: sans-serif;
+    margin: 0;
 }
 
 .tarjeta{
@@ -9,4 +9,77 @@ body {
     border-style: solid;
     border-radius: 20px;
     padding: 10px;
+}
+
+header{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background: black;
+    padding: 30px;
+}
+
+nav{
+    padding-right: 10px;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+header .ig-story{
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285ae1 90%);
+    border-radius: 50%;
+    width: 11vh;
+    height: 11vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header img{
+    width: 10vh;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.practices{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+
+.practice-card{
+    padding: 30px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 20px;
+    margin: 10px;
+    max-width: 300px;
+}
+
+
+.practice-img img{
+    width: 300px;
+    height: 300px;
+}
+
+.carousel-container {
+    display: flex;       /* Alinea las tarjetas en fila */
+    flex-direction: row; /* Asegura que la dirección sea horizontal */
+    flex-wrap: nowrap;   /* ¡IMPORTANTE! Evita que las tarjetas se vayan hacia abajo */
+    
+    overflow-x: auto;    /* Permite el scroll horizontal */
+    gap: 20px;           /* Espacio entre tarjetas */
+    padding: 20px;
+    width: 100%;         /* Ocupa el ancho de la pantalla */
+    margin-bottom: 20px;
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none; /* Oculta scroll en Chrome/Safari */
 }
