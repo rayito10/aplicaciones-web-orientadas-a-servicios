@@ -62,7 +62,7 @@ function mostrarPartidos(partidos) {
 
     //ForEach para poner los partidos
     partidos.forEach(partido => {
-        const flagUrl = obtenerURLbandera(match.competition);
+        const flagUrl = obtenerURLbandera(partido.competition);
 
         htmlMarkup += `
             <article class="card">
