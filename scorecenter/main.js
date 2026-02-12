@@ -5,7 +5,7 @@ const container = document.getElementById('cards-container');
 const API_URL = 'https://www.scorebat.com/video-api/v3/free-feed/?token=Mjc2MTQ0XzE3NzA4MzUwNjNfMmU3Y2E2M2NlOTQ1Y2Q4MjAxYTVjYzBkMTM5M2VmZDMzNDBhMTlkMw==';
 
 //Esta función utiliza una API de banderas, donde trae un png de la bandera correspondiente según la bandera de la liga.
-function getFlagUrl(competitionName) 
+function obtenerURLbandera(competitionName) 
 {
     //Convierte el nombre del país de la liga a una cadena con letras minúsculas
     const name = competitionName.toLowerCase();
@@ -34,7 +34,7 @@ function getFlagUrl(competitionName)
 
 
 //Función para traer los resúmenes
-function fetchFootballVideos() {
+function fetchPartidos() {
     fetch(API_URL)
         .then(response => {
             if (!response.ok) throw new Error('Error en la API');
@@ -51,29 +51,29 @@ function fetchFootballVideos() {
 
 
 //Función para mostrar los partidos
-function mostrarPartidos(matches) {
+function mostrarPartidos(partidos) {
     let htmlMarkup = '';
 
     //Si no hay partidos, muestra un mensaje
-    if (!matches || matches.length === 0) {
+    if (!partidos || partidos.length === 0) {
         container.innerHTML = '<p style="text-align:center;">No hay partidos hoy.</p>';
         return;
     }
 
     //ForEach para poner los partidos
-    matches.forEach(match => {
-        const flagUrl = getFlagUrl(match.competition);
+    partidos.forEach(partido => {
+        const flagUrl = obtenerURLbandera(match.competition);
 
         htmlMarkup += `
             <article class="card">
-                <img src="${match.thumbnail}" alt="${match.title}" class="match-thumb" loading="lazy">
+                <img src="${partido.thumbnail}" alt="${partido.title}" class="match-thumb" loading="lazy">
                 <div class="card-content">
                     <div class="torneo">
                         <img src="${flagUrl}" class="flag-icon" alt="Flag">
-                        <span class="card-competition">${match.competition}</span>
+                        <span class="card-competition">${partido.competition}</span>
                     </div>
-                    <h2 class="card-title">${match.title}</h2>
-                    <a href="${match.matchviewUrl}" target="_blank" class="btn-watch">
+                    <h2 class="card-title">${partido.title}</h2>
+                    <a href="${partido.matchviewUrl}" target="_blank" class="btn-watch">
                         Ver Resumen
                     </a>
                 </div>
@@ -85,4 +85,4 @@ function mostrarPartidos(matches) {
     container.innerHTML = htmlMarkup;
 }
 
-document.addEventListener('DOMContentLoaded', fetchFootballVideos);
+document.addEventListener('DOMContentLoaded', fetchPartidos);
