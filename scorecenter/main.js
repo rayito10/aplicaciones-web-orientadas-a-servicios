@@ -28,7 +28,7 @@ function obtenerURLbandera(competitionName)
     else if (name.includes('saudi arabia')) countryCode = 'sa';
     else if (name.includes('champions league') || name.includes('europa league')) countryCode = 'eu';
 
-    //Retorna la imagen de la API
+    //Retorna el link de la imagen de la API
     return `https://flagcdn.com/w40/${countryCode}.png`;
 }
 
