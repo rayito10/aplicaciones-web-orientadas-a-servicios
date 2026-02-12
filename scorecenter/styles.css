@@ -1,0 +1,131 @@
+:root {
+    --primario: #1a1a1a;
+    --acento: #e63946;
+    --fondo: #f8f9fa;
+    --blanco: #ffffff;
+    --texto-principal: #2d3436;
+    --texto-suave: #636e72;
+    --borde: #dfe6e9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--fondo);
+    margin: 0;
+    color: var(--texto-principal);
+}
+
+header {
+    background-color: var(--primario);
+    color: var(--blanco);
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.header-content h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.header-content p {
+    color: var(--texto-suave);
+    margin-top: 5px;
+}
+
+.live-indicator {
+    display: inline-block;
+    color: var(--acento);
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    animation: parpadeo 2s infinite;
+}
+
+@keyframes parpadeo {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 50px 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.card {
+    background: var(--blanco);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid var(--borde);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+}
+
+.card:hover { transform: translateY(-5px); }
+
+.match-thumb {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.card-content { padding: 20px; flex-grow: 1; }
+
+.torneo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.flag-icon {
+    width: 28px !important;    
+    height: 18px !important;  
+    object-fit: cover;         
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    display: block;     
+}
+
+.card-competition {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--acento);
+    text-transform: uppercase;
+}
+
+.card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    min-height: 3rem;
+}
+
+.btn-watch {
+    display: block;
+    text-align: center;
+    background-color: var(--primario);
+    color: var(--blanco);
+    text-decoration: none;
+    padding: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.btn-watch:hover { background-color: var(--acento); }
+
+@media (max-width: 600px) {
+    .container { grid-template-columns: 1fr; }
+}

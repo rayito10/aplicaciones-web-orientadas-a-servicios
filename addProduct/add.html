@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar nuevos productos</title>
+    <link rel="stylesheet" href="stylesAddProduct.css">
+    <link rel="stylesheet" href="../../main_page/style.css">
+</head>
+<body>
+    <div id="header"></div>
+    <h1>Alta de nuevos productos</h1>
+    <div class="form-group">
+        <label>Nombre del producto: </label>
+        <input type="text" id="titulo" placeholder="Nombre del producto..." />
+    </div>
+    <div class="form-group">
+        <label>Precio: </label>
+        <input type="number" id="precio" placeholder="$0.00" />
+    </div>
+    <div class="form-group">
+        <label>Categoria: </label>
+        <select id="categoria">
+            <option value="no_selection">Selecciona una categoria</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Descripción: </label>
+        <textarea id="descripcion" placeholder="Ingrese una descripcion del producto"></textarea>
+    </div>
+
+    <div class="buttons-container">
+        <button class="btn-back" onclick="window.location.href = '../'">
+            ← Come back
+        </button>
+
+        <button onclick="guardarProducto()" class="btn-back">
+            Guardar producto
+        </button>
+    </div>
+    <div id="mensaje-exito" style=" display: none;"></div>
+    <div id="footer"></div>
+    <script src="guardarProducto.js"></script>
+    <script src="../../main_page/pantallas.js"></script>
+</body>
+</html>
