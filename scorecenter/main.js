@@ -41,7 +41,7 @@ function fetchFootballVideos() {
             return response.json();
         })
         .then(data => {
-            renderMatches(data.response);
+            mostrarPartidos(data.response);
         })
         .catch(error => {
             console.error('Error:', error);
@@ -51,7 +51,7 @@ function fetchFootballVideos() {
 
 
 //Función para mostrar los partidos
-function renderMatches(matches) {
+function mostrarPartidos(matches) {
     let htmlMarkup = '';
 
     //Si no hay partidos, muestra un mensaje
